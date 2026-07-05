@@ -1,0 +1,6 @@
+{
+    "source": "synthetic",
+    "description": "IT Company Stress Level Analysis cohort dataset with customized work indicators.",
+    "r2_score": "93.0%",
+    "mae": "0.933 F1"
+}

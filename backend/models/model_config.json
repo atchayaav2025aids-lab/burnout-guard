@@ -1,0 +1,33 @@
+{
+    "features": [
+        "Working Hours",
+        "Overtime Hours",
+        "Number of Tasks",
+        "Meeting Hours",
+        "Satisfaction Score",
+        "Leave Count"
+    ],
+    "medians": {
+        "Working Hours": 8.3,
+        "Overtime Hours": 0.7,
+        "Number of Tasks": 6.0,
+        "Meeting Hours": 13.45,
+        "Satisfaction Score": 8.0,
+        "Leave Count": 13.0
+    },
+    "categorical_encodings": {},
+    "metrics": {
+        "accuracy": 0.93,
+        "r2_score": "93.0%",
+        "mae": "0.933 F1"
+    },
+    "feature_importances": {
+        "Working Hours": 0.2533,
+        "Overtime Hours": 0.2667,
+        "Number of Tasks": 0.2001,
+        "Meeting Hours": 0.0895,
+        "Satisfaction Score": 0.1902,
+        "Leave Count": 0.0003
+    },
+    "reference_date": "2026-06-30"
+}

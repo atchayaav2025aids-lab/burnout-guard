@@ -1,0 +1,192 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", "Poppins", system-ui, -apple-system, sans-serif;
+  
+  --color-corp-blue: #2563eb;     /* Primary Blue */
+  --color-corp-purple: #8b5cf6;   /* Secondary Purple */
+  --color-corp-dark: #0f172a;     /* Charcoal/Slate-900 */
+}
+
+@layer base {
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    min-height: 100vh;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+  
+  /* Modern Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 6px;
+    border: 2px solid var(--bg-primary);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--text-secondary);
+  }
+}
+
+/* Premium Light Mode Theme Variables (Default) */
+:root {
+  --bg-primary: #f8fafc;        /* Light Slate-50 */
+  --bg-card: #ffffff;           /* Pure White */
+  --bg-sidebar: #ffffff;        /* Pure White Sidebar */
+  --bg-topbar: #f1f5f9;         /* Light grey slate-100 */
+  --text-primary: #0f172a;      /* Deep Slate-900 */
+  --text-secondary: #475569;    /* Slate-600 */
+  --border-color: #e2e8f0;      /* Slate-200 */
+  --shadow-premium: 0 4px 20px -2px rgba(15, 23, 42, 0.06);
+}
+
+/* Premium Dark Mode Theme Variables */
+.theme-dark {
+  --bg-primary: #0b0f19;        /* Dark Charcoal */
+  --bg-card: #131c2e;           /* Dark slate blue-gray */
+  --bg-sidebar: #080d16;        /* Deep charcoal */
+  --bg-topbar: #0d1524;         /* Charcoal top header */
+  --text-primary: #ffffff;      /* High contrast white */
+  --text-secondary: #94a3b8;    /* Slate-400 */
+  --border-color: #1e293b;      /* Slate-800 */
+  --shadow-premium: 0 4px 20px -2px rgba(0, 0, 0, 0.4);
+}
+
+/* Base Panel Classes */
+.app-container {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+}
+
+.card-panel {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-premium);
+  border-radius: 0.75rem;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.card-panel:hover {
+  transform: translateY(-2px);
+  border-color: #3b82f6; /* Subtle blue border on hover */
+  box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.15);
+}
+
+.sidebar-panel {
+  background-color: var(--bg-sidebar);
+  border-right: 1px solid var(--border-color);
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.topbar-panel {
+  background-color: var(--bg-topbar);
+  border-bottom: 1px solid var(--border-color);
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Premium Buttons Styling */
+.btn-primary {
+  background-color: #2563eb;
+  color: #ffffff;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+.btn-primary:hover {
+  background-color: #1d4ed8;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.btn-secondary {
+  background-color: #7c3aed;
+  color: #ffffff;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+.btn-secondary:hover {
+  background-color: #6d28d9;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+}
+
+.btn-danger {
+  background-color: #dc2626;
+  color: #ffffff;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+.btn-danger:hover {
+  background-color: #b91c1c;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+}
+
+.btn-success {
+  background-color: #16a34a;
+  color: #ffffff;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+.btn-success:hover {
+  background-color: #15803d;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(22, 163, 74, 0.3);
+}
+
+/* Table Enhancements */
+.custom-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background-color: var(--bg-card);
+  color: var(--text-primary);
+}
+.custom-table th {
+  background-color: var(--bg-topbar);
+  color: var(--text-primary);
+  font-weight: 700;
+  padding: 0.75rem 1rem;
+  border-bottom: 2px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.custom-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border-color);
+  transition: background-color 0.15s ease;
+}
+.custom-table tr:nth-child(even) td {
+  background-color: rgba(124, 58, 237, 0.01);
+}
+.custom-table tr:hover td {
+  background-color: rgba(59, 130, 246, 0.08) !important;
+}
+
+/* Typography styles */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-primary) !important;
+  font-weight: 700;
+}
+
+.text-secondary-custom {
+  color: var(--text-secondary) !important;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
