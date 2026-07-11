@@ -8,3 +8,4 @@ numpy
 openpyxl
 reportlab
 python-multipart
+plotly
