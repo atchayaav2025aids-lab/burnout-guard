@@ -3,6 +3,16 @@ import uvicorn
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
+from starlette.exceptions import HTTPException as StarletteHTTPException
+
+class SPAStaticFiles(StaticFiles):
+    async def get_response(self, path: str, scope):
+        try:
+            return await super().get_response(path, scope)
+        except StarletteHTTPException as e:
+            if e.status_code == 404 and not path.startswith("api"):
+                return await super().get_response("index.html", scope)
+            raise e
 
 from routers import auth, upload, analyze, report, history, dashboard
 
@@ -41,7 +51,7 @@ FRONTEND_DIST_DIR = os.path.join(
 )
 
 if os.path.exists(FRONTEND_DIST_DIR):
-    app.mount("/", StaticFiles(directory=FRONTEND_DIST_DIR, html=True), name="static")
+    app.mount("/", SPAStaticFiles(directory=FRONTEND_DIST_DIR, html=True), name="static")
 
 if __name__ == "__main__":
     # Start the server locally on port 8000
